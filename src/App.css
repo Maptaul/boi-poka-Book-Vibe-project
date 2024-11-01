@@ -1,0 +1,11 @@
+
+
+.hero-content2 {
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 80rem /* 1280px */;
+    gap: 18rem /* 16px */;
+    padding: 1rem /* 16px */;
+}
