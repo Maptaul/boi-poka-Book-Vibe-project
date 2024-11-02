@@ -1,4 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { addToStoredWishList } from "../Utility/AddToDa";
+import { addToStoredReadList } from "../Utility/AddtoDb";
 
 const BookDetails = () => {
   const { bookId } = useParams();
@@ -22,6 +24,19 @@ const BookDetails = () => {
     rating,
   } = book;
 
+  const handleWishList = (id) => {
+    addToStoredWishList(id);
+  };
+
+  const handleMarkAsRead = (id) => {
+    // * 1. understand what to store or save => bookId
+    // * 2. where to store: database
+    // * 3. array, list, collection :
+    // * 4. if the book is in the read list
+    // * 5. if not, then add  book to the list
+    // * 6. if yes,do not add the book
+    addToStoredReadList(id);
+  };
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row">
@@ -58,7 +73,18 @@ const BookDetails = () => {
           <p>
             Rating: <span className="font-bold">{rating}</span>{" "}
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <button
+            onClick={() => handleMarkAsRead(bookId)}
+            className="btn btn-outline mr-5 btn-accent "
+          >
+            Read{" "}
+          </button>
+          <button
+            onClick={() => handleWishList(bookId)}
+            className="btn btn-accent"
+          >
+            Wishlist
+          </button>
         </div>
       </div>
     </div>
