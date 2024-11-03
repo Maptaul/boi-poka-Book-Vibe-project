@@ -5,7 +5,7 @@ export default function Books() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetch("../../../public/booksData.json")
+    fetch("/booksData.json")
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, []);

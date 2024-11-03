@@ -2,7 +2,16 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const Book = ({ book }) => {
-  const { bookId, bookName, author, image, tags, category, rating } = book;
+  const {
+    bookId,
+    bookName,
+    author,
+    image,
+    tags,
+    category,
+    rating,
+    totalPages,
+  } = book;
   return (
     <Link to={`/books/${bookId}`}>
       <div className="card bg-base-100 h-full lg:max-w-96 shadow-xl border-2">
@@ -40,6 +49,7 @@ const Book = ({ book }) => {
               </div>
             </div>
           </div>
+          <div>Total Pages : {totalPages}</div>
         </div>
       </div>
     </Link>
